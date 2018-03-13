@@ -1,0 +1,6 @@
+#!/bin/bash
+source $PWD/bin/bash.sh
+command=$(argsToCommand "$@")
+command=$(escapeDoubleQuotes "$command")
+
+execute docker-compose exec rails_api $command

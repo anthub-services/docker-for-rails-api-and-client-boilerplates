@@ -1,0 +1,15 @@
+#!/bin/bash
+source $PWD/bin/bash.sh
+
+execute git clone git@github.com:anthub-services/rails-api-boilerplate.git api
+execute git clone git@github.com:anthub-services/create-react-app-boilerplate.git client
+
+execute cp $PWD/api/.env.local.dist $PWD/api/.env.local
+execute cp $PWD/client/.env.dist $PWD/client/.env
+execute cp -r $PWD/client/src/Config.dist $PWD/client/src/Config
+
+execute docker-compose build
+execute docker-compose up
+
+$PWD/bin/run rails db:migrate
+$PWD/bin/run rails db:seed
