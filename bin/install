@@ -10,6 +10,3 @@ execute cp -r $PWD/client/src/Config.dist $PWD/client/src/Config
 
 execute docker-compose build
 execute docker-compose up
-
-$PWD/bin/run rails db:migrate
-$PWD/bin/run rails db:seed
